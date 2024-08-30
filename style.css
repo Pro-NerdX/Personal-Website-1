@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap');
 
+:root {
+    --base-color: #f5f5f5;
+    --text-color: #111528;
+    --tab-header-color: #888;
+    --tab-hover-color: #00acee;
+    --tab-icon-color: #555;
+    --tab-line-color: #ccc;
+    --theme-switch-color: #d9d9d9;
+    --theme-icon-color: #6b6b6b;
+}
+.darkmode {
+    --base-color: #161616;
+    --text-color: #ffffff;
+    --tab-header-color: #c5c5c5;
+    --tab-hover-color: #00ced5;
+    --tab-icon-color: #b3b3b3;
+    --tab-line-color: #ffffff;
+    --theme-switch-color: #2f2f2f;
+    --theme-icon-color: #757575;
+}
+
 * {
     box-sizing: border-box;
     letter-spacing: 0.025em;
@@ -18,7 +39,7 @@ body {
     width: 100%;  /* TODO: change to non-concrete values */
     height: 100%; /* TODO: see above */
     padding: 30px 20px;
-    background: #f5f5f5;
+    background: var(--base-color);
     overflow: hidden;
 }
 
@@ -26,7 +47,7 @@ body {
     float: left;
     width: 180px;
     height: 100%;
-    border-right: 1px solid #ccc;
+    border-right: 1px solid var(--tab-line-color);
     padding: 50px 0px;
 }
 
@@ -35,13 +56,13 @@ body {
     line-height: 50px;
     font-size: 16px;
     font-weight: 600;
-    color: #888; /* COLOR OF TAB-HEADER */
+    color: var(--tab-header-color); /* COLOR OF TAB-HEADER */
     cursor: pointer;
     padding-left: 10px;
 }
 .tabs .tab-header > div:hover, /* TODO: Change hover-color iff necessary */
 .tabs .tab-header > div.active {
-    color: #00acee;
+    color: var(--tab-hover-color);
 }
 
 .tabs .tab-header div i {
@@ -60,8 +81,8 @@ body {
     display: inline-block;
     width: 50px;
     height: 50px;
-    background: #555;
-    color: #f5f5f5;
+    background: var(--tab-icon-color);
+    color: var(--base-color);
     font-size: 25px;
     font-weight: 600;
     text-align: center;
@@ -74,6 +95,7 @@ body {
     padding: 40px 20px;
     top: -200%;
     transition: all 500ms ease-in-out;
+    color: var(--text-color);
 }
 .tabs .tab-content > div.active {
     top: 0px;
@@ -83,8 +105,42 @@ body {
     position: absolute;
     width: 4px;
     height: 50px;
-    background: #00acee;
+    background: var(--tab-hover-color);
     left: 198px;
     top: 80px;
     transition: all 500ms ease-in-out;
+}
+
+/* theme-switch */
+
+#theme-switch {
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    border-width: 0;
+    background-color: var(--theme-switch-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 35px;
+}
+
+#theme-switch svg {
+    fill: var(--theme-icon-color);
+}
+
+#theme-switch svg:last-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+    display: block;
 }
