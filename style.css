@@ -38,7 +38,10 @@ body {
     transform: translate(-50%, -50%);
     width: 100%;  /* TODO: change to non-concrete values */
     height: 100%; /* TODO: see above */
-    padding: 30px 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 0px;
     background: var(--base-color);
     overflow: hidden;
 }
@@ -94,10 +97,12 @@ body {
     position: absolute;
     text-align: center;
     width: 100%;
-    padding: 40px 20px;
+    height: 100%;
+    padding: 40px 80px;
     top: -200%;
     transition: all 500ms ease-in-out;
     color: var(--text-color);
+    overflow-y: auto;
 }
 .tabs .tab-content > div.active {
     top: 0px;
@@ -113,8 +118,9 @@ body {
     transition: all 500ms ease-in-out;
 }
 
-/* theme-switch */
 
+
+/* theme-switch */
 #theme-switch {
     cursor: pointer;
     height: 50px;
@@ -145,4 +151,61 @@ body {
 
 .darkmode #theme-switch svg:last-child {
     display: block;
+}
+
+
+
+/* horizontal line style */
+.tabs .tab-content > div > hr {
+    border-radius: 50%;
+}
+
+.tabs .tab-content > div .seperator-line {
+    -webkit-animation: seperator-width 1s ease-out forwards;
+    animation: seperator-width 1s ease-out forwards;
+}
+
+@-webkit-keyframes seperator-width {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes seperator-width {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+
+
+/* scrolling-animation */
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.tabs .tab-content > div .block {
+    animation: appear linear;
+    animation-timeline: view();
+}
+
+
+
+/* image style */
+img {
+    max-width: 70%;
+    height: auto;
 }
