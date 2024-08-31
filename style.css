@@ -92,6 +92,8 @@ body {
 
 .tabs .tab-content > div {
     position: absolute;
+    text-align: center;
+    width: 100%;
     padding: 40px 20px;
     top: -200%;
     transition: all 500ms ease-in-out;
